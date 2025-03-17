@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOCK·MATE - Galería de Calcetines</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;    
+            font-size: 50px;
+            color: #083e33;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Special Elite', Courier, monospace;    
+            font-size: 38px;    
+        }
+
+        h3 {
+            font-family: "Impact", fantasy;
+            font-size: 83px;
+            letter-spacing: 3px;
+            text-align: left;
+            margin: 20px;
+        }
+
+        h4 {
+           font-family: 'Special Elite', Courier, monospace;
+            font-size: 38px;
+            letter-spacing: 3px;
+            text-align: center;
+            margin: 20px;
+        }
+		
+        p {
+           font-family: 'Times New Roman';
+        }
+
+        .espacio {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            gap: 10px;
+            width: 98%;
+         
+            background-color: white;
+            padding: 20px;
+            align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-image: url('fondo.png'); 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 8px rgba(0, 8, 53, 0.8);
+        }
+
+        .cabezera {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 2fr;
+            gap: 3px;
+            text-align: center;
+            width: 100%; 
+            padding: 0px;
+			background: linear-gradient(to top, #38a78f, #b0f5e8);
+			box-shadow: 5px 5px 10px rgba(8, 54, 44, 0.8);
+
+            
+            background-color: #b0f5e8;
+            border: 1px solid #08362c;
+            border-radius: 10px;
+        }
+
+        .menu {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            background-color: #f39c12;
+            color: white;
+            width: 100%;
+            padding: 0px;
+            text-align: center;
+            border-radius: 5px;
+			display: flex;
+            justify-content: center; 
+            gap: 50px;  /*pone 50px entre boton y boton del menu */
+			border: 1px solid #83450a;
+
+		
+        
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+		
+		 .menu button {   /*define el formato de los botones del menu */
+            background-color: #f39c12;
+			font-size: 17px;
+            color: #30010d;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 180px;
+            position: relative;
+        }
+        .menu button:hover .dropdown {
+            display: block;
+        }
+        .dropdown {   /*define el formato de los menus despleglables*/
+            display: none;
+            position: absolute;
+            top: 100%;
+            text-align: left;
+            left: 5px;
+            width: 180px;
+            background-color: white ;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .dropdown a {
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown a:hover {
+            background-color: #b0f5e8;
+        }
+
+/* estilo y posicion del logo en la barra del menu*/
+        .logo {
+		gap: 100px;
+            float: left;
+            width: 80px;
+            height: 80px;
+            clear: left;
+        }
+/* estilo y posicion del logo de la cestan la barra del menu*/
+        .icon {
+            float: center;
+            width: 38px;
+            height: 38px;
+            clear: center;
+            padding-top: 8px;
+        }
+
+        .description {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .item img {
+            width: 100%; /* Les imatges ocupen tot l'amplada del seu contenidor */
+            height: auto; /* Manté la proporció de les imatges */
+            max-height: 250px; /* Limita l'altura màxima de les imatges */
+            object-fit: cover; /* Ajusta la imatge sense deformar-la */
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .item img:hover {
+            transform: scale(1.05);
+        }
+
+        .item p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+		
+		.price {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+    .cart-icon {
+    width: 30px !important; /* Afegim !important per assegurar-nos que aquest estil prevalgui */
+    height: 30px !important; /* Afegim !important també per garantir-ho */
+    vertical-align: middle;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+		
+    </style>
+</head>
+<body>
+     <div class="espacio">
+        <div class="cabezera">
+            <b><h1>SOCK·MATE</h1></b>
+       
+        <div>
+             <div class="menu">
+				<a href="index.html" target="_blank">
+						<img src= "l.png" alt="Sockmate_Logo" class="logo">
+				</a>
+   	<button><b>TODOS LOS SETS</b>
+            <div class="dropdown">
+                <a href="ANIME.html">ANIME</a>
+                <a href="MARVEL.html">MARVEL</a>
+                <a href="DC_COMICS.html">DC COMICS</a>
+                <a href="STAR_WARS.html">STAR WARS</a>
+				<a href="DISNEY.html">DISNEY</a>
+				<a href="SPORTS.html">ESPORT</a> 
+				<a href="SKY.html">ESQUÍ</a>
+				<a href="PACKS.html">PACKS</a>
+				<a href="LETTERS.html">LLETRES</a>
+				<a href="ESPECIALS.html">ESPECIAL</a>
+                <a href="FOOD.html">MENJAR</a>
+               
+            </div>
+			</button>
+                   
+                   
+		<button><b>OFERTES</b>
+            <div class="dropdown"> 
+				<a href="OFERTES.html"> LES MILLORS OFERTES</a>
+         
+            </div>
+        </button>
+                  
+        <button><b>SOBRE NOSOTROS</b>
+            <div class="dropdown">
+                <a href="empresa-index.html">NUESTRA EMPRESA</a>
+                
+            </div>
+        </button> 
+		
+		<button>
+				<a href="CESTAH.html" target="_blank">
+						  <img src= "bolsa.png" alt="cesta" class="icon">
+				</a>
+        </button>
+    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+ </div>
+        <div class="description">
+			<b><h4>DISNEY</h4></b>
+          <b> <em> <p> Descobreix la nostra quantitat de mitjons de Disney!</p></em> </b>
+		  
+	<hr>	  
+
+
+        </div>
+       
+   <div class="gallery">
+        <div class="item">
+            <img src="img/Especial/des1.jpg" alt="Mitjons Batman">
+            <p>Mitjons de Batman Clàssic</p>
+			<p class="price">€14.00</p>
+            <p>Talla: 39-44</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/chicken.jpg" alt="Mitjons Batman">
+            <p>Pack Batman Modern</p>
+			<p class="price">€14.00</p>
+            <p>Talla: 36-41</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/cdedos.jpg" alt="Mitjons Catwoman">
+            <p>Estil Catwoman</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 35-40</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/fishie.jpeg" alt="Mitjons Batman">
+            <p>Batman - Foscor i misteri</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 38-43</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/par.jpeg" alt="Mitjons Joker">
+            <p>El Joker - Edició Especial</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 38-43</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/grinch.jpg" alt="Mitjons Joker">
+            <p>Joker - Rialla Caòtica</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 40-45</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div> 
+		<div class="item">
+            <img src="img/Especial/navidad.jpg" alt="Mitjons Girlies">
+            <p>DC Girlies - Poder Femení</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 35-40</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/junt.jpg" alt="Mitjons Harley Quinn">
+            <p>Harley Quinn - Estil Boig</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 37-42</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/beer2.jpeg" alt="Mitjons Harley Quinn">
+            <p>Harley Quinn - Disseny Divertit</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 37-42</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+      
+        <div class="item">
+            <img src="img/Especial/banana.jpeg" alt="Mitjons Teen Titans">
+            <p>Teen Titans - Héroes Joves</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 38-43</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+		 <div class="item">
+            <img src="img/Especial/snail.jpeg" alt="Mitjons Teen Titans">
+            <p>Teen Titans - Héroes Joves</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 38-43</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+        <div class="item">
+            <img src="img/Especial/shoe.jpeg" alt="Mitjons Wonder Woman">
+            <p>Wonder Woman - Poder i Estil</p>
+			  <p class="price">€14.00</p>
+            <p>Talla: 36-41</p>
+            <img src="bolsa.png" alt="Afegir a la cistella" class="cart-icon">
+        </div>
+		
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Index.html</title>
+	<style>
+    	body {
+        	font-family: Arial, sans-serif;
+        	margin: 0;
+        	padding: 0;
+        	background-color: #f4f4f4;
+    	}
+        
+        h1 {
+			font-family: 'Courier New', Courier, monospace;	
+			font-size:  50px;
+            color:#015741;
+        	text-align: center;
+        }
+					
+		h2 {
+			font-family: 'Special Elite', Courier, monospace;	
+			font-size:  38px;	
+		}
+		
+		p {
+			font-family: 'Times New Roman';
+            }
+            
+         .espacio {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			gap: 10px;
+			width: 90%;
+			margin: 10px auto;
+			background-color: white;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			background-image: url('fondo.png'); 
+		}
+		
+        .cabezera {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 2fr;
+            gap: 3px;
+            width: 90%;
+            margin: 10px auto;
+            background-color: #b0f5e8;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+		
+		
+		.menu {
+				grid-column: 1 / 2;
+				grid-row: 1 / 2;
+				background-color: #f39c12;
+				color: white;
+				padding: 10px;
+				text-align: center;
+				border-radius: 5px;
+			}
+
+			.menu ul {
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+				display: flex;
+				justify-content: center; /* Alinea los elementos en el centro */
+			}
+
+			.menu ul li {
+				display: inline-block;
+				margin-right: 20px; /* Espaciado entre los elementos */
+			}
+
+			.menu ul li a {
+				color: white;
+				text-decoration: none;
+				padding: 10px;
+				display: block;
+			}
+
+        .container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto auto auto auto;
+			gap: 10px;
+			width: 90%;
+			margin: 10px auto;
+			background-color: white;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			background-image: url('fondo.png'); 
+		}
+
+  
+    	.header {
+        	grid-column: 1 / 2;
+        	grid-row: 2 / 3;
+        	background-color: #a7f2c0;
+        	/*padding: 10px 10px;*/
+			padding: none;
+        	text-align: center;
+        	border-radius: 5px;
+            display: grid;
+        	grid-template-columns: 1fr 1fr;
+        	grid-template-rows: auto;
+        	/*gap: 10px;*/
+        	width: 100%;
+		}
+       
+       .descubre {
+			display: grid;
+			grid-template-columns: 1fr 1fr 10px;
+			grid-template-rows: auto;
+			gap: 10px;
+			width: 80%;
+			margin: 10px 10px;
+			background-color: white;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			background-image: url('fondo.png'); 
+          
+         }
+
+    	.content {
+        	grid-column: 1 / 2;
+        	grid-row: 3 / 4;
+        	background-color: #f4a261;
+        	padding: 10px;
+        	text-align: center;
+        	border-radius: 5px;
+    	}
+
+      /* estilo y posicion de la foto en el header*/
+        .foto-header {
+            float: right;
+            width: auto;
+            height:auto;
+            clear: right;
+        }   	
+		
+		
+		
+	</style>
+</head>
+<body>
+<div class="espacio">
+<div class="cabezera">
+	<b><h1>SOCK·MATE</h1></b>
+ </div>
+	 <div>
+		<div class="menu">
+      		<ul>
+  				<li><a href="galeria.html">TODOS LOS CALCETINES</a></li>
+            	<li><a href="programes.html">OFERTAS</a></li>
+            	<li><a href="tallers.html">QUI SOM?</a></li>
+        	</ul>
+    	</div>
+	</div>
+    </div>
+    <div class="container">
+    	
+    	<div class="header">
+        	<div>
+            	<b><h2>Descobreix el procés!</h2></b>
+            	<p>txtooo</p>
+        	</div>
+
+        	<div>
+            	<img src="cce.jpg" alt="Descripció de la imatge" class="foto-header">
+        	</div>
+    	</div>
+	
+    	<div class="content">
+        	<p>Aquesta és la secció de contingut principal.</p>
+    	</div>
+	</div>
+
+</body>
+</html>
